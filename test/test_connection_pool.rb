@@ -435,6 +435,7 @@ class TestConnectionPool < Minitest::Test
     wrapper = ConnectionPool::Wrapper.new(:size => 3) do
       Recorder.new.tap { |r| recorders << r }
     end
+    wrapper.get_status
 
     threads = use_pool wrapper, 3
 

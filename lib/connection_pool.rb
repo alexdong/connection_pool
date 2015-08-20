@@ -53,6 +53,7 @@ class ConnectionPool
     @key = :"current-#{@available.object_id}"
   end
 
+
 if Thread.respond_to?(:handle_interrupt)
 
   # MRI
@@ -106,6 +107,10 @@ end
     @available.shutdown(&block)
   end
 
+  def get_status
+    return {:size => @available.length}
+  end
+
   private
 
   def pop_connection
@@ -130,6 +135,11 @@ end
     def with(&block)
       @pool.with(&block)
     end
+
+    def get_status
+      @pool.get_status
+    end
+
 
     def pool_shutdown(&block)
       @pool.shutdown(&block)
