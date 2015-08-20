@@ -110,6 +110,10 @@ class ConnectionPool::TimedStack
     (@created - @que.length) >= @max
   end
 
+  def connections
+    @que
+  end
+
   ##
   # The number of connections available on the stack.
 

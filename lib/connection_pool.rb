@@ -107,8 +107,8 @@ end
     @available.shutdown(&block)
   end
 
-  def get_status
-    return {:size => @available.length}
+  def connections
+    @available.connections
   end
 
   private
@@ -136,8 +136,8 @@ end
       @pool.with(&block)
     end
 
-    def get_status
-      @pool.get_status
+    def connections
+      @pool.connections
     end
 
 
